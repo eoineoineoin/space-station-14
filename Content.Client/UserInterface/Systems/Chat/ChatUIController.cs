@@ -167,6 +167,9 @@ public sealed class ChatUIController : UIController
         _input.SetInputCommand(ContentKeyFunctions.FocusWhisperChat,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.Whisper)));
 
+        _input.SetInputCommand(ContentKeyFunctions.FocusEmoteChat,
+            InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.Emotes)));
+
         _input.SetInputCommand(ContentKeyFunctions.FocusOOC,
             InputCmdHandler.FromDelegate(_ => FocusChannel(ChatSelectChannel.OOC)));
 
