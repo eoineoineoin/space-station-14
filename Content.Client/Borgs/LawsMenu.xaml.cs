@@ -41,6 +41,7 @@ namespace Content.Client.Borgs
                 // I cannot for the life of me get a background to display on these
                 var lawLabel = new RichTextLabel();
                 lawLabel.SetMessage(law);
+                lawLabel.Margin = new Thickness(6);
                 Laws.AddChild(lawLabel);
             }
         }
