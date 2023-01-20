@@ -46,10 +46,10 @@
   - type: Bin
     initialContents:
     - Paper
+    - PaperOffice
     - Paper
     - Paper
-    - Paper
-    - Paper
+    - PaperOffice
     whitelist:
       tags:
       - Document
@@ -63,14 +63,14 @@
   - type: Bin
     initialContents:
     - Paper
+    - PaperOffice
+    - Paper
+    - PaperOffice
+    - PaperOffice
     - Paper
     - Paper
-    - Paper
-    - Paper
-    - Paper
-    - Paper
-    - Paper
-    - Paper
+    - PaperOffice
+    - PaperOffice
     - Paper
     whitelist:
       tags:
