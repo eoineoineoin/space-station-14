@@ -431,7 +431,16 @@ namespace Content.Server.Cargo.Systems
                 $"AddAndApproveOrder {description} added order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}]");
 
             // Add it to the list
-            return TryAddOrder(dbUid, order, component) && TryFulfillOrder(stationData, order, component).HasValue;
+            if (TryAddOrder(dbUid, order, component) && TryFulfillOrder(stationData, order, component).HasValue)
+            {
+                // Remove the order from the order database, for consistency with OnApproveOrderMessage.
+                component.Orders.Remove(order);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private bool TryAddOrder(EntityUid dbUid, CargoOrderData data, StationCargoOrderDatabaseComponent component)
