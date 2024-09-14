@@ -587,6 +587,10 @@
         Blunt: 10
   - type: StealTarget
     stealGroup: BoxFolderQmClipboard
+  - type: DeviceLinkSource
+    range: 200
+    ports:
+      - OrderSender
 
 - type: entity
   parent: [Paper, BaseSyndicateContraband] # eat or burn your damn piece of paper damn thieves
