@@ -331,8 +331,22 @@ namespace Content.Server.Cargo.Systems
         private void UpdateOrderState(EntityUid consoleUid, EntityUid? station)
         {
             if (station == null ||
+                !TryComp(station, out StationDataComponent? stationData) ||
                 !TryComp<StationCargoOrderDatabaseComponent>(station, out var orderDatabase) ||
                 !TryComp<StationBankAccountComponent>(station, out var bankAccount)) return;
+
+            // Try to fulfil a single pending order, if any:
+            for(int i = 0; i < orderDatabase.Orders.Count; i++)
+            {
+                if (orderDatabase.Orders[i].Approved)
+                {
+                    if (TryFulfillOrder((station.Value, stationData), orderDatabase.Orders[i], orderDatabase).HasValue)
+                    {
+                        orderDatabase.Orders.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
 
             if (_uiSystem.HasUi(consoleUid, CargoConsoleUiKey.Orders))
             {
