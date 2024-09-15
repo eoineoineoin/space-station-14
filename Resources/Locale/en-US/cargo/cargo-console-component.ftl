@@ -1,5 +1,7 @@
 ## UI
 cargo-console-menu-title = Cargo request console
+cargo-console-menu-request-tab-title = Requests
+cargo-console-menu-history-tab-title = Order History
 cargo-console-menu-account-name-label = Account name:{" "}
 cargo-console-menu-account-name-none-text = None
 cargo-console-menu-shuttle-name-label = Shuttle name:{" "}
