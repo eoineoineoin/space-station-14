@@ -49,6 +49,19 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         Dirty(uid, component);
     }
 
+    public SortType GetInventorySortType(EntityUid uid, VendingMachineComponent? component = null)
+    {
+        if (Resolve(uid, ref component))
+        {
+            if (PrototypeManager.TryIndex(component.PackPrototypeId, out VendingMachineInventoryPrototype? packPrototype))
+            {
+                return packPrototype.SortType;
+            }
+        }
+
+        return SortType.Unsorted;
+    }
+
     /// <summary>
     /// Returns all of the vending machine's inventory. Only includes emagged and contraband inventories if
     /// <see cref="EmaggedComponent"/> exists and <see cref="VendingMachineComponent.Contraband"/> is true

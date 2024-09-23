@@ -78,7 +78,7 @@ namespace Content.Client.VendingMachines.UI
         /// Populates the list of available items on the vending machine interface
         /// and sets icons based on their prototypes
         /// </summary>
-        public void Populate(List<VendingMachineInventoryEntry> inventory)
+        public void Populate(List<VendingMachineInventoryEntry> inventory, SortType sortType)
         {
             if (inventory.Count == 0 && VendingContents.Visible)
             {
@@ -124,6 +124,17 @@ namespace Content.Client.VendingMachines.UI
                     longestEntry = itemText;
 
                 listData.Add(new VendorItemsListData(prototype.ID, itemText, i));
+            }
+
+            switch (sortType)
+            {
+                case SortType.Unsorted:
+                    break;
+                case SortType.Lexographic:
+                {
+                    listData.Sort((a,b) => { return string.Compare(a.ItemText, b.ItemText, StringComparison.CurrentCulture); } );
+                    break;
+                }
             }
 
             VendingContents.PopulateList(listData);

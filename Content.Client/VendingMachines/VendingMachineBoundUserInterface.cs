@@ -34,8 +34,9 @@ namespace Content.Client.VendingMachines
         {
             var system = EntMan.System<VendingMachineSystem>();
             _cachedInventory = system.GetAllInventory(Owner);
+            var sortType = system.GetInventorySortType(Owner);
 
-            _menu?.Populate(_cachedInventory);
+            _menu?.Populate(_cachedInventory, sortType);
         }
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)
