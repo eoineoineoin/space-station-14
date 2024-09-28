@@ -7,8 +7,8 @@
     - type: Sprite
       sprite: Objects/Misc/bureaucracy.rsi
       layers:
-      - state: synicate_card
-      - state: synicate_card
+      - state: syndicate_card
+      - state: syndicate_card
         map: ["enum.PaperVisualLayers.Writing"]
         visible: false
       - state: paper_stamp-generic
