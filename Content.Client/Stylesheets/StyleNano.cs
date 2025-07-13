@@ -1005,6 +1005,24 @@ namespace Content.Client.Stylesheets
                     new StyleProperty(BoxContainer.StylePropertySeparation, 10),
                 }),
 
+                Child()
+                    .Parent(
+                        // This Parent() selects the BoxContainer inside a disabled CheckBox
+                        Child().Parent(Element<CheckBox>().Pseudo(ContainerButton.StylePseudoClassDisabled))
+                            .Child(Element<BoxContainer>()))
+                    // This Child() selects the label that we'll apply the stlye to
+                    .Child(Element<Label>())
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#ff0000")),
+
+                Child()
+                    .Parent(
+                        // This Parent() selects the BoxContainer inside a disabled CheckBox
+                        Child().Parent(Element<CheckBox>().Pseudo(ContainerButton.StylePseudoClassDisabled))
+                            .Child(Element<BoxContainer>()))
+                    // This Child() selects the texturerect that we'll apply the stlye to
+                    .Child(Element<TextureRect>())
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#ff0000")),
+
                 // MonotoneCheckBox
                 new StyleRule(new SelectorElement(typeof(TextureRect), new [] { MonotoneCheckBox.StyleClassMonotoneCheckBox }, null, null), new[]
                 {
