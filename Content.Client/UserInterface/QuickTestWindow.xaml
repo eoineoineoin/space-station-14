@@ -1,0 +1,11 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+            Title="Hello, World!"
+            MinSize="600 400">
+    <BoxContainer Orientation="Vertical" VerticalExpand="true">
+        <Label Text="Whatchulookinat?" />
+
+        <CheckBox Text="This one is enabled" Disabled="false" />
+        <CheckBox Text="This one is disabled" Disabled="true" />
+
+    </BoxContainer>
+</DefaultWindow>
