@@ -17,7 +17,7 @@
                     <graphics:StyleBoxFlat BackgroundColor="#202023" />
                 </PanelContainer.PanelOverride>
             </PanelContainer>
-            <ScrollContainer Name="ArticleListScrollbar" HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="True">
+            <ScrollContainer Name="ArticleListScrollbar" HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
                 <BoxContainer Name="ArticlesContainer" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="6 6 6 6">
                 </BoxContainer>
             </ScrollContainer>
