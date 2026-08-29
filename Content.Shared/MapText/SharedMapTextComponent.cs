@@ -14,6 +14,12 @@ public abstract partial class SharedMapTextComponent : Component
     public const string DefaultFont = "Default";
 
     /// <summary>
+    /// Whether the text should be rendered or not
+    /// <summary>
+    [DataField]
+    public bool Enabled = true;
+
+    /// <summary>
     /// The text to display. This will override <see cref="LocText"/>.
     /// </summary>
     [DataField]
@@ -42,6 +48,7 @@ public abstract partial class SharedMapTextComponent : Component
 [Serializable, NetSerializable]
 public sealed class MapTextComponentState : ComponentState
 {
+    public bool Enabled { get; init; }
     public string? Text { get; init;}
     public LocId LocText { get; init;}
     public Color Color { get; init;}

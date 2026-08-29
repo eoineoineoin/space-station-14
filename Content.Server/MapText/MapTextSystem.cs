@@ -1,4 +1,4 @@
-﻿using Content.Shared.MapText;
+using Content.Shared.MapText;
 using Robust.Shared.GameStates;
 
 namespace Content.Server.MapText;
@@ -17,6 +17,7 @@ public sealed partial class MapTextSystem : SharedMapTextSystem
     {
         args.State = new MapTextComponentState
         {
+            Enabled = ent.Comp.Enabled,
             Text = ent.Comp.Text,
             LocText = ent.Comp.LocText,
             Color = ent.Comp.Color,

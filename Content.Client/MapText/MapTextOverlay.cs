@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Shared.MapText;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -74,7 +74,7 @@ public sealed class MapTextOverlay : Overlay
             if (!bounds.Contains(mapPos.Position))
                 continue;
 
-            if (mapText.CachedFont == null)
+            if (mapText.CachedFont == null || !mapText.Enabled)
                 continue;
 
             var pos = Vector2.Transform(mapPos.Position, matrix) + mapText.Offset;
